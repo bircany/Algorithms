@@ -10,12 +10,6 @@ public class InsertionSort {
         printArray(arr);
     }
 
-    public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-    }
-
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
@@ -26,6 +20,12 @@ public class InsertionSort {
                 j--;
             }
             arr[j + 1] = temp;
+        }
+    }
+
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 }

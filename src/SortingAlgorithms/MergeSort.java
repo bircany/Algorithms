@@ -9,11 +9,34 @@ public class MergeSort {
         System.out.println("\nSorted Array : ");
         printArray(array);
     }
-    public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+
+    public static void merge(int[] left, int[] right, int[] array) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+
+        for (; i < left.length && j < right.length && k != array.length - 1; k++) {
+            if (left[i] <= right[j]) {
+                array[k] = left[i];
+                i++;
+            } else {
+                array[k] = right[j];
+                j++;
+            }
+        }
+        while (i < left.length) { // left dizisinde kalan elemanları kopyalama
+            array[k] = left[i];
+            i++;
+            k++;
+        }
+        while (j < right.length) { // right dizisinde kalan elemanları kopyalama
+            array[k] = right[j];
+            j++;
+            k++;
         }
     }
+
     public static void mergeSort(int[] array) {
         if (array.length < 2)  // Tek Eleman veya Hiç Eleman Yoksa Sıralanamaz. Min 2 eleman lazım.
             return;
@@ -35,30 +58,9 @@ public class MergeSort {
         merge(left, right, array); // Sıralanmış alt dizileri birleştirme
     }
 
-    public static void merge(int[] left, int[] right, int[] array) {
-        int i = 0;
-        int j = 0;
-        int k = 0;
-
-
-        for(;i < left.length && j < right.length && k != array.length - 1;k++) {
-            if (left[i] <= right[j]) {
-                array[k] = left[i];
-                i++;
-            } else {
-                array[k] = right[j];
-                j++;
-            }
-        }
-        while (i < left.length) { // left dizisinde kalan elemanları kopyalama
-            array[k] = left[i];
-            i++;
-            k++;
-        }
-        while (j < right.length) { // right dizisinde kalan elemanları kopyalama
-            array[k] = right[j];
-            j++;
-            k++;
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
     }
 }

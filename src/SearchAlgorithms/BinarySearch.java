@@ -6,12 +6,6 @@ public class BinarySearch {
         int target = 37; // sought number
         isIncluded(binarySearch(arr, target));
     }
-    public static void isIncluded(int result){
-        if(result == -1)
-            System.out.print("Element is not present in array");
-        else
-            System.out.print("Element is present at index :  " + result);
-    }
     public static int binarySearch(int[] arr, int target) {
         return binarySearch(arr, target, 0, arr.length - 1);
     }
@@ -25,11 +19,18 @@ public class BinarySearch {
         if (arr[mid] == target)
             return mid;
 
-         else if (arr[mid] > target)
+        else if (arr[mid] > target)
             return binarySearch(arr, target, low, mid - 1);
 
         else
             return binarySearch(arr, target, mid + 1, high);
 
     }
+    public static void isIncluded(int result){
+        if(result == -1)
+            System.out.print("Element is not present in array");
+        else
+            System.out.print("Element is present at index :  " + result);
+    }
+
 }

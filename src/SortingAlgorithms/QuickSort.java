@@ -12,15 +12,12 @@ public class QuickSort {
         printArray(array);
     }
 
-    public static void quickSort(int[] array, int low, int high) {
-        if (low < high) {
-            int pivotIndex = partition(array, low, high);
 
-            quickSort(array, low, pivotIndex - 1); // Sol tarafı sıralama (recursive)
-            quickSort(array, pivotIndex + 1, high); // Sağ tarafı sıralama (recursive)
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
     }
-
     public static int partition(int[] array, int low, int high) {
         int pivot = array[high];
         int i = low - 1;
@@ -40,11 +37,15 @@ public class QuickSort {
         array[i] = array[j];
         array[j] = temp;
     }
+    public static void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(array, low, high);
 
-    public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+            quickSort(array, low, pivotIndex - 1); // Sol tarafı sıralama (recursive)
+            quickSort(array, pivotIndex + 1, high); // Sağ tarafı sıralama (recursive)
         }
     }
+
+
 }
 
